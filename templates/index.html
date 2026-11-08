@@ -1,0 +1,275 @@
+<!-- Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapbook Interactiva - Frameworks</title>
+    <!-- Fuentes tipográficas creativas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks */
+        :root {
+            --pastel-pink: #ffd1dc;
+            --pastel-blue: #aec6cf;
+            --pastel-green: #b2e2b1;
+            --pastel-purple: #c3aed6;
+            --pastel-yellow: #fdfd96;
+            --pastel-orange: #ffb7b2;
+            --bg-canvas: #f8f5f0;
+            --text-dark: #4a4e69;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(#e0d7ce 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 3px dashed var(--pastel-purple);
+        }
+
+        header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: #6c5ce7;
+            letter-spacing: 1px;
+        }
+
+        header p.meta-info {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.3rem;
+            color: #574b90;
+            margin-top: 5px;
+        }
+
+        .lapbook-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Estilos de Pestañas / Folders */
+        .folder-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 2px solid #eee;
+            overflow: hidden;
+        }
+
+        .folder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+        }
+
+        .folder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #ddd;
+        }
+
+        .folder-header h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .tag-html { background: var(--pastel-orange); }
+        .tag-css { background: var(--pastel-blue); }
+        .tag-js { background: var(--pastel-yellow); }
+        .tag-jinja { background: var(--pastel-purple); }
+        .tag-sql { background: var(--pastel-green); }
+
+        .folder-body p.def {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .accordion-btn {
+            width: 100%;
+            background: #f0f0f5;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .accordion-btn:hover {
+            background: #e2e2ec;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fafafa;
+            border-radius: 10px;
+            margin-top: 8px;
+            padding: 0 12px;
+        }
+
+        .accordion-content ul {
+            padding: 12px 0 12px 20px;
+            font-size: 0.9rem;
+        }
+
+        .accordion-content li {
+            margin-bottom: 6px;
+        }
+
+        /* Ventana Desplegable (Pop-up Modal de Código) */
+        .code-toggle-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background: var(--pastel-pink);
+            color: #4a4a4a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .code-toggle-btn:hover {
+            filter: brightness(0.95);
+        }
+
+        pre {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            margin-top: 10px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.1rem;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>✨ Lapbook Interactiva de Frameworks ✨</h1>
+        <p class="meta-info">Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks</p>
+    </header>
+
+    <main class="lapbook-container">
+        <!-- Renderizado dinámico de tarjetas usando el motor Jinja -->
+        {% for tema in temas %}
+        <article class="folder-card">
+            <div class="folder-header">
+                <h2>{{ tema.titulo }}</h2>
+                <span class="tag {{ tema.color_tag }}">{{ tema.subtitulo }}</span>
+            </div>
+            
+            <div class="folder-body">
+                <p class="def">{{ tema.definicion }}</p>
+
+                <!-- Desplegable estilo Lapbook con JS -->
+                <button class="accordion-btn" onclick="toggleAccordion(this)">
+                    📌 Puntos Clave <span>▼</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>{{ punto }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Botón de código interactivo -->
+                <button class="code-toggle-btn" onclick="toggleCode(this)">
+                    💻 Ver Ejemplo de Código
+                </button>
+                <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+            </div>
+        </article>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <p>Proyecto Escolar | Colegio de Estudios Científicos y Tecnológicos del Estado de México</p>
+    </footer>
+
+    <!-- Lógica interactiva en JS puro -->
+    <script>
+        // Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks
+
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const arrow = button.querySelector('span');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                arrow.textContent = '▼';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                arrow.textContent = '▲';
+            }
+        }
+
+        function toggleCode(button) {
+            const codeBlock = button.nextElementSibling;
+            if (codeBlock.style.display === "block") {
+                codeBlock.style.display = "none";
+                button.textContent = "💻 Ver Ejemplo de Código";
+            } else {
+                codeBlock.style.display = "block";
+                button.textContent = "🙈 Ocultar Ejemplo de Código";
+            }
+        }
+    </script>
+</body>
+</html>
