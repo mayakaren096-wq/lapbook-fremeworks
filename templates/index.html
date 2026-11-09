@@ -14,7 +14,7 @@
         /* Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305 */
         :root {
             --bg-board: #3b5998;
-            --text-dark: #1e293b;
+            --text-dark: #2d3436;
         }
 
         * {
@@ -32,7 +32,7 @@
             color: var(--text-dark);
         }
 
-        /* Cartel de Título */
+        /* Encabezado */
         header {
             text-align: center;
             max-width: 950px;
@@ -63,151 +63,136 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 45px;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 30px;
         }
 
-        /* ESTILOS GENERALES DE LAS FIGURAS DE PAPEL */
-        .shape-card {
+        /* Tarjeta base tipo cuaderno artesanal */
+        .card-notebook {
             background: #ffffff;
-            padding: 30px 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+            border: 3px solid #2d3436;
             position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .shape-card:hover {
-            transform: scale(1.03) rotate(1deg);
-        }
-
-        .shape-title {
-            font-family: 'Fredoka', cursive;
-            font-size: 1.7rem;
-            text-align: center;
-            margin-bottom: 6px;
-        }
-
-        .shape-tag {
-            display: block;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: 700;
-            background: rgba(0,0,0,0.1);
-            padding: 3px 10px;
-            border-radius: 10px;
-            margin: 0 auto 12px auto;
-            width: fit-content;
-        }
-
-        .shape-def {
-            font-size: 0.92rem;
-            line-height: 1.4;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        /* 1. SILUETA DE ESTRELLA (HTML5) */
-        .shape-star {
-            background: #fff9db;
-            border: 4px solid #f1c40f;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            padding: 85px 45px 75px 45px;
-            min-height: 440px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
         }
 
-        /* 2. SILUETA DE CORAZÓN (CSS3) */
-        .shape-heart {
-            background: #ffe3e3;
-            border: 4px solid #ff6b6b;
-            border-radius: 180px 180px 20px 20px;
-            padding-top: 50px;
-            min-height: 420px;
+        .card-header {
+            text-align: center;
+            margin-bottom: 15px;
         }
 
-        /* 3. SILUETA DE CONCHA DE MAR (JavaScript) */
-        .shape-shell {
-            background: #e3fafc;
-            border: 4px solid #22b8cf;
-            border-radius: 150px 150px 30px 30px;
-            clip-path: ellipse(50% 48% at 50% 50%);
-            padding: 60px 35px;
-            min-height: 420px;
-        }
-
-        /* 4. SILUETA DE ARCOÍRIS (Jinja2) */
-        .shape-rainbow {
-            background: linear-gradient(180deg, #ffc9c9 0%, #ffec99 35%, #b2f2bb 70%, #d0bfff 100%);
-            border-radius: 200px 200px 20px 20px;
-            border: 4px solid #cc5de8;
-            padding-top: 55px;
-            min-height: 420px;
-        }
-
-        /* 5. SILUETA DE SOBRE DE PAPEL (SQL) */
-        .shape-envelope {
-            background: #d3f9d8;
-            border: 4px dashed #40c057;
-            border-radius: 15px;
-            padding: 30px 25px;
-            min-height: 420px;
-        }
-
-        /* MECANISMO DE PLEGADO / PESTAÑA INTERACTIVA */
-        .flap-box {
-            margin-top: 10px;
-        }
-
-        .flap-btn {
-            width: 100%;
-            background: #2d3436;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            border-radius: 12px;
+        .card-header h2 {
             font-family: 'Fredoka', cursive;
-            font-size: 0.95rem;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            font-size: 1.8rem;
+            color: #2d3436;
         }
 
-        .flap-content {
+        .tag-badge {
+            display: inline-block;
+            background: #2d3436;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .definition-box {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #4b6584;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #2d3436;
+        }
+
+        /* BARRAS Y SOLAPAS CON FIGURAS INTERACTIVAS */
+        .interactive-figure-btn {
+            width: 100%;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 15px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.15rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            margin-bottom: 10px;
+        }
+
+        .interactive-figure-btn:hover {
+            transform: scale(1.02);
+        }
+
+        /* Colores pastel personalizados según la figura */
+        .btn-star { background: #ffe066; color: #b45309; border: 2px dashed #f59e0b; }
+        .btn-heart { background: #ffc9c9; color: #9f1239; border: 2px dashed #f43f5e; }
+        .btn-shell { background: #99e9f2; color: #0e7490; border: 2px dashed #06b6d4; }
+        .btn-rainbow { background: #eebefa; color: #7e22ce; border: 2px dashed #a855f7; }
+        .btn-envelope { background: #b2f2bb; color: #15803d; border: 2px dashed #22c55e; }
+
+        /* Contenido interactivo desplegable completo sin recortes */
+        .flap-info {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            margin-top: 8px;
-            font-size: 0.88rem;
+            background: #fff;
+            border-radius: 12px;
+            font-size: 0.95rem;
         }
 
-        .flap-content.open {
-            max-height: 250px;
+        .flap-info.open {
+            max-height: 500px;
+            padding: 15px;
+            border: 2px dashed #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .flap-info ul {
+            padding-left: 20px;
+            color: #334155;
+        }
+
+        .flap-info li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        /* Botón de Código */
+        .code-toggle-btn {
+            background: #2d3436;
+            color: #55efc4;
+            border: none;
+            width: 100%;
             padding: 12px;
-            border: 2px dashed #999;
-        }
-
-        .flap-content ul {
-            padding-left: 18px;
-        }
-
-        .flap-content li {
-            margin-bottom: 5px;
+            border-radius: 12px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px #000;
         }
 
         pre {
             background: #1e272e;
             color: #74b9ff;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.75rem;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.82rem;
             overflow-x: auto;
-            margin-top: 8px;
+            margin-top: 10px;
             display: none;
             font-family: monospace;
+            border-left: 4px solid #ff4757;
         }
 
         footer {
@@ -228,128 +213,84 @@
 
     <main class="lapbook-board">
         {% for tema in temas %}
-        
-        {% if loop.index == 1 %}
-            <!-- FIGURA 1: SILUETA DE ESTRELLA REAL -->
-            <article class="shape-card shape-star">
-                <h2 class="shape-title">⭐ {{ tema.titulo }}</h2>
-                <span class="shape-tag">{{ tema.subtitulo }}</span>
-                <p class="shape-def">{{ tema.definicion }}</p>
+        <article class="card-notebook">
+            <div class="card-header">
+                <h2>{{ tema.titulo }}</h2>
+                <span class="tag-badge">{{ tema.subtitulo }}</span>
+            </div>
+            
+            <p class="definition-box">{{ tema.definicion }}</p>
 
-                <div class="flap-box">
-                    <button class="flap-btn" onclick="toggleFlap(this)">✨ Desplegar Puntos Clave</button>
-                    <div class="flap-content">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>{{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+            <!-- SOLAPAS INTERACTIVAS CON FIGURAS DEDICADAS -->
+            {% if loop.index == 1 %}
+                <button class="interactive-figure-btn btn-star" onclick="toggleFlap(this)">
+                    ⭐ Abrir Solapa de Estrella <span>▼</span>
+                </button>
+                <div class="flap-info">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>✨ {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
 
-                <div class="flap-box">
-                    <button class="flap-btn" style="background:#d97706;" onclick="toggleCode(this)">💻 Ver Código</button>
-                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
-                </div>
-            </article>
-
-        {% elif loop.index == 2 %}
-            <!-- FIGURA 2: SILUETA DE CORAZÓN -->
-            <article class="shape-card shape-heart">
-                <h2 class="shape-title">💖 {{ tema.titulo }}</h2>
-                <span class="shape-tag">{{ tema.subtitulo }}</span>
-                <p class="shape-def">{{ tema.definicion }}</p>
-
-                <div class="flap-box">
-                    <button class="flap-btn" onclick="toggleFlap(this)">🌸 Desplegar Puntos Clave</button>
-                    <div class="flap-content">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>{{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+            {% elif loop.index == 2 %}
+                <button class="interactive-figure-btn btn-heart" onclick="toggleFlap(this)">
+                    💖 Abrir Solapa de Corazón <span>▼</span>
+                </button>
+                <div class="flap-info">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>🌸 {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
 
-                <div class="flap-box">
-                    <button class="flap-btn" style="background:#c92a2a;" onclick="toggleCode(this)">💻 Ver Código</button>
-                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
-                </div>
-            </article>
-
-        {% elif loop.index == 3 %}
-            <!-- FIGURA 3: SILUETA DE CONCHA DE MAR -->
-            <article class="shape-card shape-shell">
-                <h2 class="shape-title">🐚 {{ tema.titulo }}</h2>
-                <span class="shape-tag">{{ tema.subtitulo }}</span>
-                <p class="shape-def">{{ tema.definicion }}</p>
-
-                <div class="flap-box">
-                    <button class="flap-btn" onclick="toggleFlap(this)">🌊 Desplegar Puntos Clave</button>
-                    <div class="flap-content">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>{{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+            {% elif loop.index == 3 %}
+                <button class="interactive-figure-btn btn-shell" onclick="toggleFlap(this)">
+                    🐚 Abrir Solapa de Concha de Mar <span>▼</span>
+                </button>
+                <div class="flap-info">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>🌊 {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
 
-                <div class="flap-box">
-                    <button class="flap-btn" style="background:#0b7285;" onclick="toggleCode(this)">💻 Ver Código</button>
-                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
-                </div>
-            </article>
-
-        {% elif loop.index == 4 %}
-            <!-- FIGURA 4: SILUETA DE ARCOÍRIS -->
-            <article class="shape-card shape-rainbow">
-                <h2 class="shape-title">🌈 {{ tema.titulo }}</h2>
-                <span class="shape-tag">{{ tema.subtitulo }}</span>
-                <p class="shape-def">{{ tema.definicion }}</p>
-
-                <div class="flap-box">
-                    <button class="flap-btn" onclick="toggleFlap(this)">🎨 Desplegar Puntos Clave</button>
-                    <div class="flap-content">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>{{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+            {% elif loop.index == 4 %}
+                <button class="interactive-figure-btn btn-rainbow" onclick="toggleFlap(this)">
+                    🌈 Abrir Solapa de Arcoíris <span>▼</span>
+                </button>
+                <div class="flap-info">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>🎨 {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
 
-                <div class="flap-box">
-                    <button class="flap-btn" style="background:#862e9c;" onclick="toggleCode(this)">💻 Ver Código</button>
-                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+            {% else %}
+                <button class="interactive-figure-btn btn-envelope" onclick="toggleFlap(this)">
+                    ✉️ Abrir Sobre de Datos <span>▼</span>
+                </button>
+                <div class="flap-info">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>🔑 {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
-            </article>
+            {% endif %}
 
-        {% else %}
-            <!-- FIGURA 5: SOBRE DE PAPEL DECORADO -->
-            <article class="shape-card shape-envelope">
-                <h2 class="shape-title">✉️ {{ tema.titulo }}</h2>
-                <span class="shape-tag">{{ tema.subtitulo }}</span>
-                <p class="shape-def">{{ tema.definicion }}</p>
-
-                <div class="flap-box">
-                    <button class="flap-btn" onclick="toggleFlap(this)">✉️ Abrir Sobre de Datos</button>
-                    <div class="flap-content">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>{{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="flap-box">
-                    <button class="flap-btn" style="background:#2b8a3e;" onclick="toggleCode(this)">💻 Ver Código</button>
-                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
-                </div>
-            </article>
-        {% endif %}
-
+            <!-- Sección de Código -->
+            <div>
+                <button class="code-toggle-btn" onclick="toggleCode(this)">
+                    💻 Ver Código de Ejemplo
+                </button>
+                <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+            </div>
+        </article>
         {% endfor %}
     </main>
 
@@ -361,15 +302,25 @@
         // Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305
         function toggleFlap(btn) {
             const content = btn.nextElementSibling;
+            const arrow = btn.querySelector('span');
+            
             content.classList.toggle('open');
+            
+            if (content.classList.contains('open')) {
+                arrow.textContent = '▲';
+            } else {
+                arrow.textContent = '▼';
+            }
         }
 
         function toggleCode(btn) {
             const pre = btn.nextElementSibling;
             if (pre.style.display === "block") {
                 pre.style.display = "none";
+                btn.textContent = "💻 Ver Código de Ejemplo";
             } else {
                 pre.style.display = "block";
+                btn.textContent = "🙈 Ocultar Código";
             }
         }
     </script>
