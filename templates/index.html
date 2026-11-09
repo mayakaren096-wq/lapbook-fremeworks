@@ -4,24 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lapbook Interactiva de Frameworks</title>
-    <!-- Fuentes de Google Fonts -->
+    <title>Lapbook Interactiva Avanzada - Frameworks</title>
+    <!-- Fuentes modernas y divertidas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Caveat:wght@600;700&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&family=Indie+Flower&display=swap" rel="stylesheet">
     
     <style>
         /* Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks */
         :root {
-            --pastel-pink: #ffd1dc;
-            --pastel-blue: #b4e1ff;
-            --pastel-green: #d1f7c4;
-            --pastel-purple: #e2d1f9;
-            --pastel-yellow: #fff3b0;
-            --pastel-peach: #ffdac1;
-            --bg-color: #fcf9f5;
-            --text-main: #3d3a45;
-            --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            --pastel-pink: #ffccd5;
+            --pastel-blue: #bde0fe;
+            --pastel-green: #c8e6c9;
+            --pastel-purple: #e2cff4;
+            --pastel-yellow: #fff9c4;
+            --pastel-peach: #ffe5d9;
+            --text-color: #2b2d42;
+            --white: #ffffff;
         }
 
         * {
@@ -31,218 +30,230 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(135deg, #fceade 0%, #eaf4f4 100%);
             font-family: 'Quicksand', sans-serif;
-            color: var(--text-main);
+            color: var(--text-color);
             min-height: 100vh;
-            padding: 30px 15px;
-            background-image: 
-                radial-gradient(#e5ddd0 1.5px, transparent 1.5px), 
-                radial-gradient(#e5ddd0 1.5px, var(--bg-color) 1.5px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
+            padding: 25px;
         }
 
         header {
             text-align: center;
-            max-width: 850px;
-            margin: 0 auto 40px auto;
-            background: #ffffff;
+            max-width: 900px;
+            margin: 0 auto 35px auto;
+            background: var(--white);
             padding: 30px;
-            border-radius: 25px;
-            box-shadow: var(--shadow);
-            border: 3px dashed var(--pastel-purple);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 4px dashed var(--pastel-purple);
             position: relative;
+            overflow: hidden;
         }
 
         header h1 {
-            font-family: 'Comfortaa', cursive;
-            font-size: 2.4rem;
-            color: #6c5ce7;
-            margin-bottom: 10px;
+            font-family: 'Fredoka', cursive;
+            font-size: 2.5rem;
+            color: #7b2cbf;
+            margin-bottom: 8px;
         }
 
         header p.meta-info {
-            font-family: 'Caveat', cursive;
-            font-size: 1.6rem;
-            color: #d63031;
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.5rem;
+            color: #d90429;
             font-weight: 700;
         }
 
-        .lapbook-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        /* Contenedor de la Lapbook Estilo Pestañas de Cuaderno */
+        .lapbook-container {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
         }
 
-        /* Tarjetas con estilo de Lapbook Creativa */
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
+        .lapbook-card {
+            background: var(--white);
+            border-radius: 25px;
             padding: 25px;
-            box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
             position: relative;
-            border: 2px solid rgba(0,0,0,0.04);
+            border-top: 10px solid #ccc; /* Se cambia dinámicamente con clases */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        .lapbook-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.12);
         }
+
+        /* Bordes superiores color pastel por tarjeta */
+        .card-html { border-top-color: #ffb5a7; }
+        .card-css { border-top-color: #a0c4ff; }
+        .card-js { border-top-color: #fdffb6; }
+        .card-jinja { border-top-color: #cdb4db; }
+        .card-sql { border-top-color: #b9fbc0; }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
-            border-bottom: 2px dotted #eee;
-            padding-bottom: 12px;
         }
 
         .card-header h2 {
-            font-family: 'Comfortaa', cursive;
-            font-size: 1.5rem;
-            color: #2d3436;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.8rem;
+            color: #3a0ca3;
         }
 
-        .badge {
-            padding: 6px 14px;
-            border-radius: 20px;
+        .tag-badge {
+            padding: 5px 12px;
+            border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        /* Colores de etiquetas pastel personalizados */
-        .badge-html { background: var(--pastel-peach); color: #d35400; }
-        .badge-css { background: var(--pastel-blue); color: #0984e3; }
-        .badge-js { background: var(--pastel-yellow); color: #b7950b; }
-        .badge-jinja { background: var(--pastel-purple); color: #8e44ad; }
-        .badge-sql { background: var(--pastel-green); color: #27ae60; }
+        .badge-html { background: var(--pastel-peach); color: #bc6c25; }
+        .badge-css { background: var(--pastel-blue); color: #1d3557; }
+        .badge-js { background: var(--pastel-yellow); color: #7f5539; }
+        .badge-jinja { background: var(--pastel-purple); color: #5a189a; }
+        .badge-sql { background: var(--pastel-green); color: #2d6a4f; }
 
         .card-body p {
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 20px;
-            color: #636e72;
+            color: #495057;
         }
 
-        /* Sección Desplegable Interactiva */
-        .interactive-section {
+        /* Pestañas Interactivas Desplegables Avanzadas */
+        .tab-box {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 12px 15px;
+            border: 2px dashed #dee2e6;
             margin-bottom: 15px;
-            border: 1px solid #edf2f7;
+            overflow: hidden;
+            transition: all 0.3s;
         }
 
-        .dropdown-btn {
+        .tab-btn {
+            width: 100%;
             background: none;
             border: none;
-            width: 100%;
+            padding: 12px 15px;
             text-align: left;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: #2d3436;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            color: #4361ee;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .dropdown-content {
+        .tab-btn:hover {
+            background: rgba(67, 97, 238, 0.05);
+        }
+
+        .tab-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            padding: 0 15px;
+            background: var(--white);
             font-size: 0.95rem;
         }
 
-        .dropdown-content ul {
+        .tab-content.active {
+            max-height: 300px;
+            padding: 10px 15px 15px 15px;
+            transition: max-height 0.4s ease-in-out;
+        }
+
+        .tab-content ul {
             padding-left: 20px;
-            margin-top: 10px;
-            color: #4b6584;
+            color: #333;
         }
 
-        .dropdown-content li {
-            margin-bottom: 5px;
+        .tab-content li {
+            margin-bottom: 6px;
         }
 
-        /* Botón de Código Estilo Terminal Pastel */
-        .code-toggle {
-            background: #2d3436;
-            color: #dfe6e9;
+        /* Botón Interactivo de Código Estilo Ventana Flotante */
+        .code-btn {
+            background: #212529;
+            color: var(--white);
             border: none;
             width: 100%;
             padding: 12px;
             border-radius: 12px;
             font-family: 'Quicksand', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s;
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .code-toggle:hover {
-            background: #636e72;
+        .code-btn:hover {
+            background: #343a40;
+            transform: scale(1.02);
         }
 
         pre {
-            background: #1e272e;
-            color: #00d2d3;
+            background: #0b090a;
+            color: #00f5d4;
             padding: 15px;
-            border-radius: 10px;
-            font-size: 0.82rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
             overflow-x: auto;
             margin-top: 10px;
             display: none;
             font-family: 'Courier New', Courier, monospace;
+            border-left: 4px solid #7209b7;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
-            color: #636e72;
+            margin-top: 40px;
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.6rem;
+            color: #495057;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🌸 Lapbook Interactiva de Frameworks 🌸</h1>
+        <h1>✨ Lapbook Interactiva y Creativa de Frameworks ✨</h1>
         <p class="meta-info">Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks</p>
     </header>
 
-    <main class="lapbook-grid">
+    <main class="lapbook-container">
         {% for tema in temas %}
-        <article class="card">
+        <article class="lapbook-card card-{{ tema.id }}">
             <div>
                 <div class="card-header">
                     <h2>{{ tema.titulo }}</h2>
-                    <span class="badge {{ tema.color_tag }}">{{ tema.subtitulo }}</span>
+                    <span class="tag-badge badge-{{ tema.id }}">{{ tema.subtitulo }}</span>
                 </div>
                 
                 <div class="card-body">
                     <p>{{ tema.definicion }}</p>
 
-                    <!-- Desplegable interactivo de puntos clave -->
-                    <div class="interactive-section">
-                        <button class="dropdown-btn" onclick="toggleDropdown(this)">
-                            ✨ Ver Puntos Clave <span>▼</span>
+                    <!-- Pestaña Interactiva Desplegable -->
+                    <div class="tab-box">
+                        <button class="tab-btn" onclick="toggleTab(this)">
+                            📌 Ver Características Clave <span>▼</span>
                         </button>
-                        <div class="dropdown-content">
+                        <div class="tab-content">
                             <ul>
                                 {% for punto in tema.puntos_clave %}
                                     <li>{{ punto }}</li>
@@ -254,9 +265,9 @@
             </div>
 
             <div>
-                <!-- Botón de código interactivo -->
-                <button class="code-toggle" onclick="toggleCode(this)">
-                    💻 Mostrar Código de Ejemplo
+                <!-- Botón de código interactivo con animación -->
+                <button class="code-btn" onclick="toggleCode(this)">
+                    💻 Ver Código de Ejemplo
                 </button>
                 <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
             </div>
@@ -270,16 +281,20 @@
 
     <script>
         // Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks
-        function toggleDropdown(button) {
+        
+        function toggleTab(button) {
             const content = button.nextElementSibling;
             const arrow = button.querySelector('span');
             
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                arrow.textContent = '▼';
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+            // Cierra o abre con animación fluida
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
                 arrow.textContent = '▲';
+                button.style.color = '#7209b7';
+            } else {
+                arrow.textContent = '▼';
+                button.style.color = '#4361ee';
             }
         }
 
@@ -287,10 +302,12 @@
             const pre = button.nextElementSibling;
             if (pre.style.display === "block") {
                 pre.style.display = "none";
-                button.textContent = "💻 Mostrar Código de Ejemplo";
+                button.textContent = "💻 Ver Código de Ejemplo";
+                button.style.background = "#212529";
             } else {
                 pre.style.display = "block";
                 button.textContent = "🙈 Ocultar Código";
+                button.style.background = "#7209b7";
             }
         }
     </script>
