@@ -1,25 +1,25 @@
-<!-- Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks -->
+<!-- Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lapbook Interactiva de Frameworks</title>
-    <!-- Fuentes divertidas y artesanales -->
+    <title>Lapbook - Implementa Frameworks para el Desarrollo de Software</title>
+    <!-- Fuentes divertidas y creativas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@500;700&family=Patrick+Hand&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks */
+        /* Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305 */
         :root {
-            --bg-board: #4a6fa5;
-            --pink: #ffb7b2;
-            --mint: #b5ead7;
-            --yellow: #ffdac1;
-            --purple: #e2f0cb;
-            --lavender: #c7ceea;
-            --paper-light: #fffdf9;
+            --bg-board: #3b5998;
+            --pastel-pink: #ffb7b2;
+            --pastel-yellow: #ffdac1;
+            --pastel-green: #e2f0cb;
+            --pastel-blue: #b5ead7;
+            --pastel-purple: #c7ceea;
+            --text-dark: #2d3436;
         }
 
         * {
@@ -30,215 +30,272 @@
 
         body {
             background-color: var(--bg-board);
-            background-image: 
-                radial-gradient(rgba(255, 255, 255, 0.25) 2px, transparent 2px);
-            background-size: 30px 30px;
-            font-family: 'Patrick Hand', cursive;
-            padding: 20px;
-            color: #2c3e50;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+            background-size: 26px 26px;
+            font-family: 'Quicksand', sans-serif;
+            padding: 25px 15px;
+            color: var(--text-dark);
         }
 
-        /* Título tipo cartel artesanal pegado con cinta */
+        /* Cartel de Título Estilo Escolar */
         header {
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto 35px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 20px;
-            border: 4px dashed #ff6b6b;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            max-width: 950px;
+            margin: 0 auto 40px auto;
+            background: #ffffff;
+            padding: 25px 20px;
+            border-radius: 25px;
+            border: 4px dashed #ff4757;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
             position: relative;
-            transform: rotate(-1deg);
         }
-
-        header::before, header::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 25px;
-            background: rgba(255, 235, 150, 0.7);
-            top: -10px;
-            transform: rotate(-5deg);
-        }
-        header::before { left: 20px; }
-        header::after { right: 20px; transform: rotate(5deg); }
 
         header h1 {
             font-family: 'Fredoka', cursive;
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             color: #ff4757;
-            text-shadow: 2px 2px #ffeaa7;
+            margin-bottom: 8px;
+            line-height: 1.2;
         }
 
         header p.meta {
             font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: #2e86de;
-            margin-top: 5px;
+            font-size: 1.7rem;
+            color: #1e90ff;
+            font-weight: 700;
         }
 
-        /* Tablero de Lapbook */
-        .lapbook-container {
+        /* Tablero de Figuras */
+        .lapbook-board {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 30px;
+            gap: 35px;
         }
 
-        /* Tarjeta / Sobre de Lapbook */
-        .card-envelope {
-            background: var(--paper-light);
-            border-radius: 18px;
+        /* Base para cada figura */
+        .figure-card {
+            background: #ffffff;
+            border-radius: 25px;
             padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+            border: 3px solid #2d3436;
             position: relative;
-            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.15);
-            border: 3px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .card-envelope:hover {
-            transform: translateY(-5px) rotate(1deg);
-        }
-
-        /* Variación de colores por tema */
-        .theme-1 { background: #fff0f3; border-color: #ff758f; }
-        .theme-2 { background: #e8f8f5; border-color: #1abc9c; }
-        .theme-3 { background: #fffde7; border-color: #f1c40f; }
-        .theme-4 { background: #f3e5f5; border-color: #9c27b0; }
-        .theme-5 { background: #e3f2fd; border-color: #2196f3; }
-
-        .sticker-icon {
-            position: absolute;
-            top: -15px;
-            right: 15px;
-            font-size: 2rem;
-            background: #fff;
-            border: 2px solid #333;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 2px 2px 0px #333;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
         }
 
-        .card-envelope h2 {
+        .figure-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .figure-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .figure-header h2 {
             font-family: 'Fredoka', cursive;
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
+            font-size: 1.8rem;
+            color: #2d3436;
         }
 
         .subtitle-tag {
             display: inline-block;
-            background: #333;
+            background: #2d3436;
             color: #fff;
             padding: 3px 12px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Quicksand', sans-serif;
-            margin-bottom: 15px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 5px;
         }
 
         .definition-text {
-            font-size: 1.2rem;
-            line-height: 1.4;
-            margin-bottom: 18px;
-            color: #4a4a4a;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #4b6584;
         }
 
-        /* SOBRE INTERACTIVO (EFECTO ABRIR/CERRAR) */
-        .interactive-envelope {
-            background: #fff;
-            border: 2px dashed #666;
-            border-radius: 12px;
-            overflow: hidden;
+        /* ================= FIGURAS INTERACTIVAS ================= */
+
+        /* 1. ESTRELLA DESPLEGABLE (HTML5) */
+        .fig-star-box {
+            background: #fff9db;
+            border: 2px dashed #f1c40f;
+            border-radius: 18px;
             margin-bottom: 15px;
+            overflow: hidden;
         }
-
-        .envelope-btn {
+        .fig-star-btn {
             width: 100%;
-            background: #ffeaa7;
+            background: #ffe066;
             border: none;
             padding: 12px;
             font-family: 'Fredoka', cursive;
-            font-size: 1.2rem;
-            color: #d35400;
+            font-size: 1.1rem;
+            color: #d97706;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.2s;
         }
 
-        .envelope-btn:hover {
-            background: #fdcb6e;
+        /* 2. CORAZÓN DESPLEGABLE (CSS3) */
+        .fig-heart-box {
+            background: #ffe3e3;
+            border: 2px dashed #ff6b6b;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .fig-heart-btn {
+            width: 100%;
+            background: #ffc9c9;
+            border: none;
+            padding: 12px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            color: #c92a2a;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .envelope-content {
+        /* 3. CONCHA DE MAR DESPLEGABLE (JavaScript) */
+        .fig-shell-box {
+            background: #e3fafac8;
+            border: 2px dashed #22b8cf;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .fig-shell-btn {
+            width: 100%;
+            background: #99e9f2;
+            border: none;
+            padding: 12px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            color: #0b7285;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 4. ARCOÍRIS EN PESTAÑAS (Jinja2) */
+        .fig-rainbow-box {
+            background: #f3d9fa;
+            border: 2px dashed #cc5de8;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .fig-rainbow-btn {
+            width: 100%;
+            background: #eebefa;
+            border: none;
+            padding: 12px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            color: #862e9c;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 5. SOBRE MÁGICO (SQL) */
+        .fig-envelope-box {
+            background: #d3f9d8;
+            border: 2px dashed #51cf66;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .fig-envelope-btn {
+            width: 100%;
+            background: #b2f2bb;
+            border: none;
+            padding: 12px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            color: #2b8a3e;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Contenido interactivo desplegable */
+        .flap-body {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
             padding: 0 15px;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+            background: #ffffff;
         }
 
-        .envelope-content.open {
-            max-height: 300px;
-            padding: 15px;
-            border-top: 2px dashed #666;
+        .flap-body.open {
+            max-height: 280px;
+            padding: 12px 15px;
+            border-top: 2px dashed #ccc;
         }
 
-        .envelope-content ul {
+        .flap-body ul {
             padding-left: 20px;
+            color: #333;
         }
 
-        .envelope-content li {
+        .flap-body li {
             margin-bottom: 6px;
         }
 
-        /* CÓDIGO INTERACTIVO EN NOTA ADHESIVA */
-        .code-sticky {
+        /* Botón de Código Flotante */
+        .code-btn {
             background: #2d3436;
             color: #55efc4;
             border: none;
             width: 100%;
             padding: 12px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-family: 'Fredoka', cursive;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
-            box-shadow: 3px 3px 0px #000;
             transition: all 0.2s;
+            box-shadow: 2px 2px 0px #000;
         }
 
-        .code-sticky:hover {
-            transform: scale(1.02);
+        .code-btn:hover {
             background: #636e72;
         }
 
         pre {
             background: #1e272e;
             color: #74b9ff;
-            padding: 15px;
+            padding: 12px;
             border-radius: 10px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             overflow-x: auto;
             margin-top: 10px;
             display: none;
             font-family: monospace;
-            border: 2px solid #00cec9;
+            border-left: 4px solid #ff4757;
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
             font-family: 'Caveat', cursive;
-            font-size: 1.8rem;
-            color: #fff;
+            font-size: 1.7rem;
+            color: #ffffff;
             text-shadow: 1px 1px #000;
         }
     </style>
@@ -246,40 +303,97 @@
 <body>
 
     <header>
-        <h1>🌸 Lapbook Interactiva de Frameworks 🌸</h1>
-        <p class="meta">Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks</p>
+        <h1>Lapbook - Implementa Frameworks para el Desarrollo de Software</h1>
+        <p class="meta">Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305</p>
     </header>
 
-    <main class="lapbook-container">
+    <main class="lapbook-board">
         {% for tema in temas %}
-        <article class="card-envelope theme-{{ loop.index }}">
-            <div class="sticker-icon">
-                {% if loop.index == 1 %}🎀{% elif loop.index == 2 %}🎨{% elif loop.index == 3 %}⚡{% elif loop.index == 4 %}🦄{% else %}🗄️{% endif %}
+        <article class="figure-card">
+            <div class="figure-header">
+                <h2>{{ tema.titulo }}</h2>
+                <span class="subtitle-tag">{{ tema.subtitulo }}</span>
             </div>
-
-            <h2>{{ tema.titulo }}</h2>
-            <span class="subtitle-tag">{{ tema.subtitulo }}</span>
             
             <p class="definition-text">{{ tema.definicion }}</p>
 
-            <!-- Sobre interactivo desplegable -->
-            <div class="interactive-envelope">
-                <button class="envelope-btn" onclick="toggleEnvelope(this)">
-                    💌 Abrir Sobre de Puntos Clave <span>▼</span>
-                </button>
-                <div class="envelope-content">
-                    <ul>
-                        {% for punto in tema.puntos_clave %}
-                            <li>✨ {{ punto }}</li>
-                        {% endfor %}
-                    </ul>
+            <!-- FIGURAS INTERACTIVAS SEGÚN EL ÍNDICE -->
+            {% if loop.index == 1 %}
+                <!-- ESTRELLA QUE SE ABRE -->
+                <div class="fig-star-box">
+                    <button class="fig-star-btn" onclick="toggleFig(this)">
+                        ⭐ Abrir Estrella de Puntos Clave <span>▼</span>
+                    </button>
+                    <div class="flap-body">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>✨ {{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            {% elif loop.index == 2 %}
+                <!-- CORAZÓN DESPLEGABLE -->
+                <div class="fig-heart-box">
+                    <button class="fig-heart-btn" onclick="toggleFig(this)">
+                        💖 Abrir Corazón Desplegable <span>▼</span>
+                    </button>
+                    <div class="flap-body">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>🌸 {{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% elif loop.index == 3 %}
+                <!-- CONCHA DE MAR -->
+                <div class="fig-shell-box">
+                    <button class="fig-shell-btn" onclick="toggleFig(this)">
+                        🐚 Abrir Concha de Mar <span>▼</span>
+                    </button>
+                    <div class="flap-body">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>🌊 {{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% elif loop.index == 4 %}
+                <!-- ARCOÍRIS EN PESTAÑAS -->
+                <div class="fig-rainbow-box">
+                    <button class="fig-rainbow-btn" onclick="toggleFig(this)">
+                        🌈 Desplegar Arcoíris <span>▼</span>
+                    </button>
+                    <div class="flap-body">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>🎨 {{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% else %}
+                <!-- SOBRE MÁGICO -->
+                <div class="fig-envelope-box">
+                    <button class="fig-envelope-btn" onclick="toggleFig(this)">
+                        ✉️ Abrir Sobre de Datos <span>▼</span>
+                    </button>
+                    <div class="flap-body">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>🔑 {{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
 
-            <!-- Botón de Código de Ejemplo -->
+            <!-- Botón para mostrar código -->
             <div>
-                <button class="code-sticky" onclick="toggleCode(this)">
-                    💻 Desplegar Código de Ejemplo
+                <button class="code-btn" onclick="toggleCode(this)">
+                    💻 Ver Código de Ejemplo
                 </button>
                 <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
             </div>
@@ -292,8 +406,8 @@
     </footer>
 
     <script>
-        // Realizado por Fhany Mendez y Karen Maya - Grupo: 305 - Frameworks
-        function toggleEnvelope(btn) {
+        // Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305
+        function toggleFig(btn) {
             const content = btn.nextElementSibling;
             const arrow = btn.querySelector('span');
             
@@ -301,12 +415,8 @@
             
             if (content.classList.contains('open')) {
                 arrow.textContent = '▲';
-                btn.style.background = '#ff7675';
-                btn.style.color = '#fff';
             } else {
                 arrow.textContent = '▼';
-                btn.style.background = '#ffeaa7';
-                btn.style.color = '#d35400';
             }
         }
 
@@ -314,7 +424,7 @@
             const pre = btn.nextElementSibling;
             if (pre.style.display === "block") {
                 pre.style.display = "none";
-                btn.textContent = "💻 Desplegar Código de Ejemplo";
+                btn.textContent = "💻 Ver Código de Ejemplo";
             } else {
                 pre.style.display = "block";
                 btn.textContent = "🙈 Ocultar Código";
