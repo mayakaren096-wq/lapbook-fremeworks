@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lapbook - Implementa Frameworks para el Desarrollo de Software</title>
-    <!-- Fuentes creativas -->
+    <!-- Tipografías divertidas estilo Bubble / Redondeadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Fredoka:wght@600;700&family=Sniglet:wght@800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         /* Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305 */
         :root {
             --bg-board: #3b5998;
+            --pastel-pink: #ffb7b2;
+            --pastel-blue: #a0c4ff;
+            --pastel-yellow: #fdffb6;
+            --pastel-purple: #d664be;
+            --pastel-green: #b9fbc0;
             --text-dark: #2d3436;
         }
 
@@ -25,40 +30,42 @@
 
         body {
             background-color: var(--bg-board);
-            background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
-            background-size: 26px 26px;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.25) 2.5px, transparent 2.5px);
+            background-size: 28px 28px;
             font-family: 'Quicksand', sans-serif;
             padding: 25px 15px;
             color: var(--text-dark);
         }
 
-        /* Encabezado */
+        /* Cartel de Título con tipografía Bubble */
         header {
             text-align: center;
             max-width: 950px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 35px auto;
             background: #ffffff;
             padding: 25px 20px;
             border-radius: 25px;
-            border: 4px dashed #ff4757;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+            border: 5px solid #ff4757;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
         }
 
         header h1 {
-            font-family: 'Fredoka', cursive;
-            font-size: 2.2rem;
+            font-family: 'Sniglet', cursive;
+            font-size: 2.3rem;
             color: #ff4757;
             margin-bottom: 8px;
-            line-height: 1.2;
+            letter-spacing: 0.5px;
         }
 
         header p.meta {
-            font-family: 'Caveat', cursive;
-            font-size: 1.7rem;
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.25rem;
             color: #1e90ff;
             font-weight: 700;
         }
 
+        /* Contenedor principal de tarjetas */
         .lapbook-board {
             max-width: 1200px;
             margin: 0 auto;
@@ -67,139 +74,140 @@
             gap: 30px;
         }
 
-        /* Tarjeta base tipo cuaderno artesanal */
-        .card-notebook {
+        /* Tarjetas estilo bloque colorido */
+        .color-card {
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 22px;
             padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.18);
-            border: 3px solid #2d3436;
-            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 4px solid #2d3436;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            transition: transform 0.2s ease;
         }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Colores vivos por tarjeta */
+        .card-1 { border-color: #ff758f; background: #fff0f3; }
+        .card-2 { border-color: #3a86ff; background: #edf2fb; }
+        .card-3 { border-color: #ffbe0b; background: #fffdf0; }
+        .card-4 { border-color: #8338ec; background: #f3e8ff; }
+        .card-5 { border-color: #38b000; background: #e8f5e9; }
 
         .card-header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .card-header h2 {
-            font-family: 'Fredoka', cursive;
-            font-size: 1.8rem;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.9rem;
             color: #2d3436;
         }
 
         .tag-badge {
             display: inline-block;
+            font-family: 'Sniglet', cursive;
             background: #2d3436;
-            color: #fff;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-top: 5px;
+            color: #ffffff;
+            padding: 4px 14px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            margin-top: 6px;
         }
 
-        .definition-box {
+        .definition-text {
+            font-family: 'Quicksand', sans-serif;
             font-size: 1rem;
             line-height: 1.5;
-            margin-bottom: 20px;
-            color: #4b6584;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 12px;
-            border-left: 4px solid #2d3436;
+            margin-bottom: 18px;
+            color: #334155;
+            background: #ffffff;
+            padding: 14px;
+            border-radius: 14px;
+            border: 2px dashed #cbd5e1;
         }
 
-        /* BARRAS Y SOLAPAS CON FIGURAS INTERACTIVAS */
-        .interactive-figure-btn {
+        /* Botones estilo bubble desplegables */
+        .bubble-btn {
             width: 100%;
-            border: none;
-            padding: 14px 18px;
-            border-radius: 15px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1.15rem;
+            border: 3px solid #2d3436;
+            background: #ffeaa7;
+            color: #2d3436;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s, background-color 0.2s;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 0px #2d3436;
+            transition: all 0.15s ease;
         }
 
-        .interactive-figure-btn:hover {
-            transform: scale(1.02);
+        .bubble-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0px #2d3436;
         }
 
-        /* Colores pastel personalizados según la figura */
-        .btn-star { background: #ffe066; color: #b45309; border: 2px dashed #f59e0b; }
-        .btn-heart { background: #ffc9c9; color: #9f1239; border: 2px dashed #f43f5e; }
-        .btn-shell { background: #99e9f2; color: #0e7490; border: 2px dashed #06b6d4; }
-        .btn-rainbow { background: #eebefa; color: #7e22ce; border: 2px dashed #a855f7; }
-        .btn-envelope { background: #b2f2bb; color: #15803d; border: 2px dashed #22c55e; }
+        .btn-code {
+            background: #74b9ff;
+            color: #0c2461;
+        }
 
-        /* Contenido interactivo desplegable completo sin recortes */
-        .flap-info {
+        /* Contenido desplegable completo */
+        .dropdown-box {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out;
-            background: #fff;
-            border-radius: 12px;
+            background: #ffffff;
+            border-radius: 14px;
             font-size: 0.95rem;
         }
 
-        .flap-info.open {
-            max-height: 500px;
-            padding: 15px;
-            border: 2px dashed #cbd5e1;
-            margin-bottom: 15px;
+        .dropdown-box.open {
+            max-height: 400px;
+            padding: 14px;
+            border: 2px solid #2d3436;
+            margin-bottom: 12px;
         }
 
-        .flap-info ul {
+        .dropdown-box ul {
             padding-left: 20px;
-            color: #334155;
         }
 
-        .flap-info li {
+        .dropdown-box li {
             margin-bottom: 8px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
             line-height: 1.4;
-        }
-
-        /* Botón de Código */
-        .code-toggle-btn {
-            background: #2d3436;
-            color: #55efc4;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 2px 2px 0px #000;
         }
 
         pre {
             background: #1e272e;
-            color: #74b9ff;
-            padding: 15px;
-            border-radius: 10px;
+            color: #55efc4;
+            padding: 14px;
+            border-radius: 12px;
             font-size: 0.82rem;
             overflow-x: auto;
             margin-top: 10px;
             display: none;
             font-family: monospace;
-            border-left: 4px solid #ff4757;
+            border: 2px solid #2d3436;
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
-            font-family: 'Caveat', cursive;
-            font-size: 1.7rem;
+            font-family: 'Sniglet', cursive;
+            font-size: 1.4rem;
             color: #ffffff;
         }
     </style>
@@ -213,80 +221,32 @@
 
     <main class="lapbook-board">
         {% for tema in temas %}
-        <article class="card-notebook">
+        <article class="color-card card-{{ loop.index }}">
             <div class="card-header">
                 <h2>{{ tema.titulo }}</h2>
                 <span class="tag-badge">{{ tema.subtitulo }}</span>
             </div>
             
-            <p class="definition-box">{{ tema.definicion }}</p>
+            <p class="definition-text">{{ tema.definicion }}</p>
 
-            <!-- SOLAPAS INTERACTIVAS CON FIGURAS DEDICADAS -->
-            {% if loop.index == 1 %}
-                <button class="interactive-figure-btn btn-star" onclick="toggleFlap(this)">
-                    ⭐ Abrir Solapa de Estrella <span>▼</span>
-                </button>
-                <div class="flap-info">
-                    <ul>
-                        {% for punto in tema.puntos_clave %}
-                            <li>✨ {{ punto }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-            {% elif loop.index == 2 %}
-                <button class="interactive-figure-btn btn-heart" onclick="toggleFlap(this)">
-                    💖 Abrir Solapa de Corazón <span>▼</span>
-                </button>
-                <div class="flap-info">
-                    <ul>
-                        {% for punto in tema.puntos_clave %}
-                            <li>🌸 {{ punto }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-            {% elif loop.index == 3 %}
-                <button class="interactive-figure-btn btn-shell" onclick="toggleFlap(this)">
-                    🐚 Abrir Solapa de Concha de Mar <span>▼</span>
-                </button>
-                <div class="flap-info">
-                    <ul>
-                        {% for punto in tema.puntos_clave %}
-                            <li>🌊 {{ punto }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-            {% elif loop.index == 4 %}
-                <button class="interactive-figure-btn btn-rainbow" onclick="toggleFlap(this)">
-                    🌈 Abrir Solapa de Arcoíris <span>▼</span>
-                </button>
-                <div class="flap-info">
-                    <ul>
-                        {% for punto in tema.puntos_clave %}
-                            <li>🎨 {{ punto }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-            {% else %}
-                <button class="interactive-figure-btn btn-envelope" onclick="toggleFlap(this)">
-                    ✉️ Abrir Sobre de Datos <span>▼</span>
-                </button>
-                <div class="flap-info">
-                    <ul>
-                        {% for punto in tema.puntos_clave %}
-                            <li>🔑 {{ punto }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-
-            <!-- Sección de Código -->
+            <!-- Sección desplegable de Puntos Clave -->
             <div>
-                <button class="code-toggle-btn" onclick="toggleCode(this)">
-                    💻 Ver Código de Ejemplo
+                <button class="bubble-btn" onclick="toggleSection(this)">
+                    ✨ Puntos Clave de Estudio <span>▼</span>
+                </button>
+                <div class="dropdown-box">
+                    <ul>
+                        {% for punto in tema.puntos_clave %}
+                            <li>• {{ punto }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sección desplegable de Código -->
+            <div>
+                <button class="bubble-btn btn-code" onclick="toggleCode(this)">
+                    💻 Código de Ejemplo
                 </button>
                 <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
             </div>
@@ -300,7 +260,7 @@
 
     <script>
         // Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305
-        function toggleFlap(btn) {
+        function toggleSection(btn) {
             const content = btn.nextElementSibling;
             const arrow = btn.querySelector('span');
             
@@ -317,10 +277,8 @@
             const pre = btn.nextElementSibling;
             if (pre.style.display === "block") {
                 pre.style.display = "none";
-                btn.textContent = "💻 Ver Código de Ejemplo";
             } else {
                 pre.style.display = "block";
-                btn.textContent = "🙈 Ocultar Código";
             }
         }
     </script>
