@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lapbook - Implementa Frameworks para el Desarrollo de Software</title>
-    <!-- Fuentes divertidas y creativas -->
+    <!-- Fuentes creativas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@500;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
@@ -14,12 +14,7 @@
         /* Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305 */
         :root {
             --bg-board: #3b5998;
-            --pastel-pink: #ffb7b2;
-            --pastel-yellow: #ffdac1;
-            --pastel-green: #e2f0cb;
-            --pastel-blue: #b5ead7;
-            --pastel-purple: #c7ceea;
-            --text-dark: #2d3436;
+            --text-dark: #1e293b;
         }
 
         * {
@@ -37,7 +32,7 @@
             color: var(--text-dark);
         }
 
-        /* Cartel de Título Estilo Escolar */
+        /* Cartel de Título */
         header {
             text-align: center;
             max-width: 950px;
@@ -47,7 +42,6 @@
             border-radius: 25px;
             border: 4px dashed #ff4757;
             box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-            position: relative;
         }
 
         header h1 {
@@ -65,229 +59,155 @@
             font-weight: 700;
         }
 
-        /* Tablero de Figuras */
         .lapbook-board {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 45px;
+            align-items: start;
         }
 
-        /* Base para cada figura */
-        .figure-card {
+        /* ESTILOS GENERALES DE LAS FIGURAS DE PAPEL */
+        .shape-card {
             background: #ffffff;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-            border: 3px solid #2d3436;
+            padding: 30px 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             transition: transform 0.3s ease;
         }
 
-        .figure-card:hover {
-            transform: translateY(-6px);
+        .shape-card:hover {
+            transform: scale(1.03) rotate(1deg);
         }
 
-        .figure-header {
+        .shape-title {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.7rem;
             text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .figure-header h2 {
-            font-family: 'Fredoka', cursive;
-            font-size: 1.8rem;
-            color: #2d3436;
-        }
-
-        .subtitle-tag {
-            display: inline-block;
-            background: #2d3436;
-            color: #fff;
-            padding: 3px 12px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-top: 5px;
-        }
-
-        .definition-text {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            color: #4b6584;
-        }
-
-        /* ================= FIGURAS INTERACTIVAS ================= */
-
-        /* 1. ESTRELLA DESPLEGABLE (HTML5) */
-        .fig-star-box {
-            background: #fff9db;
-            border: 2px dashed #f1c40f;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .fig-star-btn {
-            width: 100%;
-            background: #ffe066;
-            border: none;
-            padding: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1.1rem;
-            color: #d97706;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* 2. CORAZÓN DESPLEGABLE (CSS3) */
-        .fig-heart-box {
-            background: #ffe3e3;
-            border: 2px dashed #ff6b6b;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .fig-heart-btn {
-            width: 100%;
-            background: #ffc9c9;
-            border: none;
-            padding: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1.1rem;
-            color: #c92a2a;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* 3. CONCHA DE MAR DESPLEGABLE (JavaScript) */
-        .fig-shell-box {
-            background: #e3fafac8;
-            border: 2px dashed #22b8cf;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .fig-shell-btn {
-            width: 100%;
-            background: #99e9f2;
-            border: none;
-            padding: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1.1rem;
-            color: #0b7285;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* 4. ARCOÍRIS EN PESTAÑAS (Jinja2) */
-        .fig-rainbow-box {
-            background: #f3d9fa;
-            border: 2px dashed #cc5de8;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .fig-rainbow-btn {
-            width: 100%;
-            background: #eebefa;
-            border: none;
-            padding: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1.1rem;
-            color: #862e9c;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* 5. SOBRE MÁGICO (SQL) */
-        .fig-envelope-box {
-            background: #d3f9d8;
-            border: 2px dashed #51cf66;
-            border-radius: 18px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        .fig-envelope-btn {
-            width: 100%;
-            background: #b2f2bb;
-            border: none;
-            padding: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1.1rem;
-            color: #2b8a3e;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Contenido interactivo desplegable */
-        .flap-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            padding: 0 15px;
-            font-size: 0.95rem;
-            background: #ffffff;
-        }
-
-        .flap-body.open {
-            max-height: 280px;
-            padding: 12px 15px;
-            border-top: 2px dashed #ccc;
-        }
-
-        .flap-body ul {
-            padding-left: 20px;
-            color: #333;
-        }
-
-        .flap-body li {
             margin-bottom: 6px;
         }
 
-        /* Botón de Código Flotante */
-        .code-btn {
-            background: #2d3436;
-            color: #55efc4;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            font-family: 'Fredoka', cursive;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 2px 2px 0px #000;
+        .shape-tag {
+            display: block;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: rgba(0,0,0,0.1);
+            padding: 3px 10px;
+            border-radius: 10px;
+            margin: 0 auto 12px auto;
+            width: fit-content;
         }
 
-        .code-btn:hover {
-            background: #636e72;
+        .shape-def {
+            font-size: 0.92rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* 1. SILUETA DE ESTRELLA (HTML5) */
+        .shape-star {
+            background: #fff9db;
+            border: 4px solid #f1c40f;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            padding: 85px 45px 75px 45px;
+            min-height: 440px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 2. SILUETA DE CORAZÓN (CSS3) */
+        .shape-heart {
+            background: #ffe3e3;
+            border: 4px solid #ff6b6b;
+            border-radius: 180px 180px 20px 20px;
+            padding-top: 50px;
+            min-height: 420px;
+        }
+
+        /* 3. SILUETA DE CONCHA DE MAR (JavaScript) */
+        .shape-shell {
+            background: #e3fafc;
+            border: 4px solid #22b8cf;
+            border-radius: 150px 150px 30px 30px;
+            clip-path: ellipse(50% 48% at 50% 50%);
+            padding: 60px 35px;
+            min-height: 420px;
+        }
+
+        /* 4. SILUETA DE ARCOÍRIS (Jinja2) */
+        .shape-rainbow {
+            background: linear-gradient(180deg, #ffc9c9 0%, #ffec99 35%, #b2f2bb 70%, #d0bfff 100%);
+            border-radius: 200px 200px 20px 20px;
+            border: 4px solid #cc5de8;
+            padding-top: 55px;
+            min-height: 420px;
+        }
+
+        /* 5. SILUETA DE SOBRE DE PAPEL (SQL) */
+        .shape-envelope {
+            background: #d3f9d8;
+            border: 4px dashed #40c057;
+            border-radius: 15px;
+            padding: 30px 25px;
+            min-height: 420px;
+        }
+
+        /* MECANISMO DE PLEGADO / PESTAÑA INTERACTIVA */
+        .flap-box {
+            margin-top: 10px;
+        }
+
+        .flap-btn {
+            width: 100%;
+            background: #2d3436;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            font-family: 'Fredoka', cursive;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .flap-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            margin-top: 8px;
+            font-size: 0.88rem;
+        }
+
+        .flap-content.open {
+            max-height: 250px;
+            padding: 12px;
+            border: 2px dashed #999;
+        }
+
+        .flap-content ul {
+            padding-left: 18px;
+        }
+
+        .flap-content li {
+            margin-bottom: 5px;
         }
 
         pre {
             background: #1e272e;
             color: #74b9ff;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 0.8rem;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
             overflow-x: auto;
-            margin-top: 10px;
+            margin-top: 8px;
             display: none;
             font-family: monospace;
-            border-left: 4px solid #ff4757;
         }
 
         footer {
@@ -296,7 +216,6 @@
             font-family: 'Caveat', cursive;
             font-size: 1.7rem;
             color: #ffffff;
-            text-shadow: 1px 1px #000;
         }
     </style>
 </head>
@@ -309,95 +228,128 @@
 
     <main class="lapbook-board">
         {% for tema in temas %}
-        <article class="figure-card">
-            <div class="figure-header">
-                <h2>{{ tema.titulo }}</h2>
-                <span class="subtitle-tag">{{ tema.subtitulo }}</span>
-            </div>
-            
-            <p class="definition-text">{{ tema.definicion }}</p>
+        
+        {% if loop.index == 1 %}
+            <!-- FIGURA 1: SILUETA DE ESTRELLA REAL -->
+            <article class="shape-card shape-star">
+                <h2 class="shape-title">⭐ {{ tema.titulo }}</h2>
+                <span class="shape-tag">{{ tema.subtitulo }}</span>
+                <p class="shape-def">{{ tema.definicion }}</p>
 
-            <!-- FIGURAS INTERACTIVAS SEGÚN EL ÍNDICE -->
-            {% if loop.index == 1 %}
-                <!-- ESTRELLA QUE SE ABRE -->
-                <div class="fig-star-box">
-                    <button class="fig-star-btn" onclick="toggleFig(this)">
-                        ⭐ Abrir Estrella de Puntos Clave <span>▼</span>
-                    </button>
-                    <div class="flap-body">
+                <div class="flap-box">
+                    <button class="flap-btn" onclick="toggleFlap(this)">✨ Desplegar Puntos Clave</button>
+                    <div class="flap-content">
                         <ul>
                             {% for punto in tema.puntos_clave %}
-                                <li>✨ {{ punto }}</li>
+                                <li>{{ punto }}</li>
                             {% endfor %}
                         </ul>
                     </div>
                 </div>
-            {% elif loop.index == 2 %}
-                <!-- CORAZÓN DESPLEGABLE -->
-                <div class="fig-heart-box">
-                    <button class="fig-heart-btn" onclick="toggleFig(this)">
-                        💖 Abrir Corazón Desplegable <span>▼</span>
-                    </button>
-                    <div class="flap-body">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>🌸 {{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            {% elif loop.index == 3 %}
-                <!-- CONCHA DE MAR -->
-                <div class="fig-shell-box">
-                    <button class="fig-shell-btn" onclick="toggleFig(this)">
-                        🐚 Abrir Concha de Mar <span>▼</span>
-                    </button>
-                    <div class="flap-body">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>🌊 {{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            {% elif loop.index == 4 %}
-                <!-- ARCOÍRIS EN PESTAÑAS -->
-                <div class="fig-rainbow-box">
-                    <button class="fig-rainbow-btn" onclick="toggleFig(this)">
-                        🌈 Desplegar Arcoíris <span>▼</span>
-                    </button>
-                    <div class="flap-body">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>🎨 {{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            {% else %}
-                <!-- SOBRE MÁGICO -->
-                <div class="fig-envelope-box">
-                    <button class="fig-envelope-btn" onclick="toggleFig(this)">
-                        ✉️ Abrir Sobre de Datos <span>▼</span>
-                    </button>
-                    <div class="flap-body">
-                        <ul>
-                            {% for punto in tema.puntos_clave %}
-                                <li>🔑 {{ punto }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            {% endif %}
 
-            <!-- Botón para mostrar código -->
-            <div>
-                <button class="code-btn" onclick="toggleCode(this)">
-                    💻 Ver Código de Ejemplo
-                </button>
-                <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
-            </div>
-        </article>
+                <div class="flap-box">
+                    <button class="flap-btn" style="background:#d97706;" onclick="toggleCode(this)">💻 Ver Código</button>
+                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+                </div>
+            </article>
+
+        {% elif loop.index == 2 %}
+            <!-- FIGURA 2: SILUETA DE CORAZÓN -->
+            <article class="shape-card shape-heart">
+                <h2 class="shape-title">💖 {{ tema.titulo }}</h2>
+                <span class="shape-tag">{{ tema.subtitulo }}</span>
+                <p class="shape-def">{{ tema.definicion }}</p>
+
+                <div class="flap-box">
+                    <button class="flap-btn" onclick="toggleFlap(this)">🌸 Desplegar Puntos Clave</button>
+                    <div class="flap-content">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>{{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flap-box">
+                    <button class="flap-btn" style="background:#c92a2a;" onclick="toggleCode(this)">💻 Ver Código</button>
+                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+                </div>
+            </article>
+
+        {% elif loop.index == 3 %}
+            <!-- FIGURA 3: SILUETA DE CONCHA DE MAR -->
+            <article class="shape-card shape-shell">
+                <h2 class="shape-title">🐚 {{ tema.titulo }}</h2>
+                <span class="shape-tag">{{ tema.subtitulo }}</span>
+                <p class="shape-def">{{ tema.definicion }}</p>
+
+                <div class="flap-box">
+                    <button class="flap-btn" onclick="toggleFlap(this)">🌊 Desplegar Puntos Clave</button>
+                    <div class="flap-content">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>{{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flap-box">
+                    <button class="flap-btn" style="background:#0b7285;" onclick="toggleCode(this)">💻 Ver Código</button>
+                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+                </div>
+            </article>
+
+        {% elif loop.index == 4 %}
+            <!-- FIGURA 4: SILUETA DE ARCOÍRIS -->
+            <article class="shape-card shape-rainbow">
+                <h2 class="shape-title">🌈 {{ tema.titulo }}</h2>
+                <span class="shape-tag">{{ tema.subtitulo }}</span>
+                <p class="shape-def">{{ tema.definicion }}</p>
+
+                <div class="flap-box">
+                    <button class="flap-btn" onclick="toggleFlap(this)">🎨 Desplegar Puntos Clave</button>
+                    <div class="flap-content">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>{{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flap-box">
+                    <button class="flap-btn" style="background:#862e9c;" onclick="toggleCode(this)">💻 Ver Código</button>
+                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+                </div>
+            </article>
+
+        {% else %}
+            <!-- FIGURA 5: SOBRE DE PAPEL DECORADO -->
+            <article class="shape-card shape-envelope">
+                <h2 class="shape-title">✉️ {{ tema.titulo }}</h2>
+                <span class="shape-tag">{{ tema.subtitulo }}</span>
+                <p class="shape-def">{{ tema.definicion }}</p>
+
+                <div class="flap-box">
+                    <button class="flap-btn" onclick="toggleFlap(this)">✉️ Abrir Sobre de Datos</button>
+                    <div class="flap-content">
+                        <ul>
+                            {% for punto in tema.puntos_clave %}
+                                <li>{{ punto }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flap-box">
+                    <button class="flap-btn" style="background:#2b8a3e;" onclick="toggleCode(this)">💻 Ver Código</button>
+                    <pre><code>{{ tema.codigo_ejemplo }}</code></pre>
+                </div>
+            </article>
+        {% endif %}
+
         {% endfor %}
     </main>
 
@@ -407,27 +359,17 @@
 
     <script>
         // Realizado por Mendez Moreno Dulce Estefhany y Sánchez Maya Karen Daniela - Grupo 305
-        function toggleFig(btn) {
+        function toggleFlap(btn) {
             const content = btn.nextElementSibling;
-            const arrow = btn.querySelector('span');
-            
             content.classList.toggle('open');
-            
-            if (content.classList.contains('open')) {
-                arrow.textContent = '▲';
-            } else {
-                arrow.textContent = '▼';
-            }
         }
 
         function toggleCode(btn) {
             const pre = btn.nextElementSibling;
             if (pre.style.display === "block") {
                 pre.style.display = "none";
-                btn.textContent = "💻 Ver Código de Ejemplo";
             } else {
                 pre.style.display = "block";
-                btn.textContent = "🙈 Ocultar Código";
             }
         }
     </script>
